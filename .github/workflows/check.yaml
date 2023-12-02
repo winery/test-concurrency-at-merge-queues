@@ -1,0 +1,27 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+  merge_group:
+  workflow_dispatch:
+
+concurrency:
+  group: "${{ github.workflow }}-${{ github.head_ref || github.ref }}"
+  cancel-in-progress: true
+
+permissions:
+  pull-requests: write
+
+jobs:
+  test:
+    name: Checkstyle
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep $((RANDOM % 91 + 30))
+      - run: |
+          if [ $((RANDOM % 2)) -eq 0 ]; then
+              exit 0
+          else
+              exit 1
+          fi
