@@ -17,4 +17,4 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - run: sleep $((RANDOM % 20 + 5))
+      - run: sleep $((RANDOM % 19 + 5))
