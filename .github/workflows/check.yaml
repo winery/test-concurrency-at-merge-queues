@@ -2,6 +2,8 @@ name: Tests
 
 on:
   push:
+    branches:
+      main
   pull_request:
   merge_group:
   workflow_dispatch:
@@ -17,10 +19,4 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - run: sleep $((RANDOM % 15 + 5))
-      - run: |
-          if [ $((RANDOM % 3)) -eq 0 ]; then
-              exit 1
-          else
-              exit 0
-          fi
+      - run: sleep $((RANDOM % 20 + 5))
